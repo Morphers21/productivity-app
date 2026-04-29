@@ -736,39 +736,53 @@
             margin-bottom: 10px;
         }
 
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            width: 50px;
-            height: 28px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s ease;
-        }
+.theme-toggle {
+    width: 50px;
+    height: 28px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .theme-toggle::before {
-            content: '☀️';
-            position: absolute;
-            left: 4px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 
-        .theme-toggle::after {
-            content: '🌙';
-            position: absolute;
-            right: 4px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 14px;
-        }
+.theme-toggle.active::before {
+    left: 27px;
+}
 
-        .theme-toggle.active {
-            background: var(--accent);
-        }
+.theme-toggle::after {
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+    content: '🌙';
+}
+
+.theme-toggle.active {
+    background: var(--accent);
+}
+
+.theme-toggle:not(.active)::after {
+    content: '☀️';
+}
+
 
         /* Scrollbar */
         ::-webkit-scrollbar {
@@ -1391,12 +1405,18 @@
         }
 
         // Theme
-        function toggleTheme() {
-            document.body.toggleAttribute('data-theme');
-            document.querySelector('.theme-toggle').classList.toggle('active');
-            localStorage.setItem('theme', document.body.hasAttribute('data-theme') ? 'dark' : 'light');
-        }
-
+       function toggleTheme() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        document.querySelector('.theme-toggle').classList.remove('active');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').classList.add('active');
+        localStorage.setItem('theme', 'dark');
+    }
+}
         // Add Task
         function addTask() {
             const input = document.getElementById('task-input');
