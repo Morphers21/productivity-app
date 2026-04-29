@@ -55,7 +55,6 @@
             padding: 20px;
         }
 
-        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
@@ -80,7 +79,6 @@
             align-items: center;
         }
 
-        /* Stats Bar */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -124,7 +122,6 @@
             color: var(--text-secondary);
         }
 
-        /* XP Progress Bar */
         .xp-container {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -175,7 +172,13 @@
             color: var(--text-secondary);
         }
 
-        /* Streak & Challenges */
+        .xp-daily {
+            text-align: center;
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--warning);
+        }
+
         .streak-challenges {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -273,7 +276,6 @@
             color: var(--purple);
         }
 
-        /* Achievements */
         .achievements-section {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -331,14 +333,13 @@
             color: var(--text-muted);
         }
 
-        .achievement XP {
+        .achievement-xp {
             font-size: 12px;
             color: var(--purple);
             font-weight: 500;
             margin-top: 5px;
         }
 
-        /* Weekly Chart */
         .chart-section {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -381,7 +382,6 @@
             color: var(--text-secondary);
         }
 
-        /* Main Layout */
         .main-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -413,7 +413,6 @@
             font-weight: 600;
         }
 
-        /* Buttons */
         .btn {
             padding: 10px 20px;
             border: none;
@@ -457,7 +456,6 @@
             font-size: 18px;
         }
 
-        /* Input Groups */
         .input-group {
             display: flex;
             gap: 10px;
@@ -491,7 +489,6 @@
             cursor: pointer;
         }
 
-        /* Filters */
         .filters {
             display: flex;
             gap: 10px;
@@ -516,7 +513,6 @@
             border-color: var(--accent);
         }
 
-        /* Task List */
         .task-list {
             max-height: 400px;
             overflow-y: auto;
@@ -646,7 +642,6 @@
             background: var(--danger);
         }
 
-        /* Goals */
         .goal-item {
             display: flex;
             align-items: center;
@@ -701,7 +696,6 @@
             color: white;
         }
 
-        /* Notes */
         .notes-list {
             max-height: 250px;
             overflow-y: auto;
@@ -712,6 +706,13 @@
             background: var(--bg-tertiary);
             border-radius: 12px;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .note-content {
+            flex: 1;
         }
 
         .note-text {
@@ -724,7 +725,11 @@
             color: var(--text-muted);
         }
 
-        /* Empty State */
+        .note-actions {
+            display: flex;
+            gap: 5px;
+        }
+
         .empty-state {
             text-align: center;
             padding: 40px;
@@ -736,55 +741,44 @@
             margin-bottom: 10px;
         }
 
-.theme-toggle {
-    width: 50px;
-    height: 28px;
-    background: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .theme-toggle {
+            width: 50px;
+            height: 28px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.theme-toggle::before {
-    content: '';
-    position: absolute;
-    left: 3px;
-    width: 20px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
 
-.theme-toggle.active::before {
-    left: 27px;
-}
+        .theme-toggle.active::before {
+            left: 27px;
+        }
 
-.theme-toggle::after {
-    font-size: 16px;
-    transition: opacity 0.3s ease;
-}
+        .theme-toggle.active {
+            background: var(--accent);
+        }
 
-[data-theme="dark"] .theme-toggle::after {
-    content: '🌙';
-}
+        [data-theme="dark"] .theme-toggle::before {
+            left: 27px;
+        }
 
-.theme-toggle.active {
-    background: var(--accent);
-}
-
-.theme-toggle:not(.active)::after {
-    content: '☀️';
-}
-
-
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -803,7 +797,6 @@
             background: var(--text-muted);
         }
 
-        /* Completion Ring */
         .completion-ring {
             position: relative;
             width: 80px;
@@ -838,7 +831,6 @@
             font-weight: 700;
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 20px;
@@ -876,15 +868,77 @@
             color: var(--text-muted);
         }
 
-        .toast XP {
+        .toast-xp {
             color: var(--purple);
             font-weight: 600;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.show .modal {
+            transform: scale(1);
+        }
+
+        .modal h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .modal input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>🚀 Productivity App</h1>
             <div class="header-actions">
@@ -893,7 +947,6 @@
             </div>
         </div>
 
-        <!-- Stats Bar -->
         <div class="stats-bar">
             <div class="stat-card">
                 <div class="stat-icon tasks">✅</div>
@@ -931,7 +984,6 @@
             </div>
         </div>
 
-        <!-- XP Bar -->
         <div class="xp-container">
             <div class="xp-header">
                 <h3>⚡ XP Progress</h3>
@@ -941,9 +993,9 @@
                 <div class="xp-fill" id="xp-fill" style="width: 0%"></div>
             </div>
             <p class="xp-text"><span id="current-xp">0</span> / <span id="xp-needed">100</span> XP to next level</p>
+            <p class="xp-daily" id="xp-daily">Daily XP: 0 / 500</p>
         </div>
 
-        <!-- Streak & Challenges -->
         <div class="streak-challenges">
             <div class="streak-card">
                 <h3>🔥 Current Streak</h3>
@@ -966,7 +1018,6 @@
             </div>
         </div>
 
-        <!-- Achievements -->
         <div class="achievements-section">
             <div class="section-header">
                 <h2>🏅 Achievements</h2>
@@ -975,7 +1026,6 @@
             <div class="achievements-grid" id="achievements-grid"></div>
         </div>
 
-        <!-- Weekly Chart -->
         <div class="chart-section">
             <div class="section-header">
                 <h2>📊 Weekly Overview</h2>
@@ -984,9 +1034,7 @@
             <div class="chart-container" id="weekly-chart"></div>
         </div>
 
-        <!-- Main Layout -->
         <div class="main-layout">
-            <!-- Tasks Panel -->
             <div class="panel">
                 <div class="panel-header">
                     <h2>📋 Tasks</h2>
@@ -1032,9 +1080,7 @@
                 <div class="task-list" id="task-list"></div>
             </div>
 
-            <!-- Right Column -->
             <div style="display: flex; flex-direction: column; gap: 25px;">
-                <!-- Goals Panel -->
                 <div class="panel">
                     <div class="panel-header">
                         <h2>🎯 Daily Goals</h2>
@@ -1046,10 +1092,9 @@
                     <div id="goals-list"></div>
                 </div>
 
-                <!-- Notes Panel -->
                 <div class="panel">
                     <div class="panel-header">
-                        <h2>📝 Notes </h2>
+                        <h2>📝 Notes</h2>
                     </div>
                     <div class="input-group">
                         <input type="text" id="note-input" placeholder="Jot down an idea..." onkeyup="handleNoteEnter(event)">
@@ -1061,12 +1106,24 @@
         </div>
     </div>
 
-    <!-- Toast -->
     <div class="toast" id="toast">
         <div class="toast-icon">⭐</div>
         <div class="toast-content">
             <h4 id="toast-title">Achievement Unlocked!</h4>
             <p id="toast-desc">+50 XP</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="edit-modal">
+        <div class="modal">
+            <h3 id="modal-title">Edit Item</h3>
+            <input type="text" id="modal-input" placeholder="Enter new value...">
+            <input type="hidden" id="modal-type">
+            <input type="hidden" id="modal-id">
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveModal()">Save</button>
+            </div>
         </div>
     </div>
 
@@ -1085,6 +1142,11 @@
         let weeklyChallenges = [];
         let currentPriorityFilter = 'all';
         let currentCategoryFilter = 'all';
+        let completedTasksTotal = 0;
+        let completedGoalsTotal = 0;
+        let dailyXP = 0;
+        let lastXPDate = null;
+        const DAILY_XP_LIMIT = 500;
 
         // Achievement definitions
         const achievementDefs = [
@@ -1102,7 +1164,6 @@
             { id: 'notes_20', name: 'Note Taker', desc: 'Create 20 notes', icon: '📝', xp: 50 }
         ];
 
-        // Challenge definitions
         const challengeDefs = {
             daily: [
                 { text: 'Complete 3 tasks', target: 3, type: 'tasks' },
@@ -1120,27 +1181,20 @@
             ]
         };
 
-        // Initialize
         function init() {
             loadFromStorage();
             if (dailyChallenges.length === 0) generateChallenges();
             renderAll();
-            checkRecurringTasks();
             startNewDayCheck();
         }
 
-        // Storage
         function saveToStorage() {
             localStorage.setItem('productivity_data', JSON.stringify({
                 tasks, goals, notes, xp, level, streak, lastCompletionDate, 
                 dailyHistory, achievements, dailyChallenges, weeklyChallenges,
-                completedTasksTotal: completedTasksTotal,
-                completedGoalsTotal: completedGoalsTotal
+                completedTasksTotal, completedGoalsTotal, dailyXP, lastXPDate
             }));
         }
-
-        let completedTasksTotal = 0;
-        let completedGoalsTotal = 0;
 
         function loadFromStorage() {
             const data = localStorage.getItem('productivity_data');
@@ -1159,8 +1213,8 @@
                 weeklyChallenges = parsed.weeklyChallenges || [];
                 completedTasksTotal = parsed.completedTasksTotal || 0;
                 completedGoalsTotal = parsed.completedGoalsTotal || 0;
-
-                // Check for new day
+                dailyXP = parsed.dailyXP || 0;
+                lastXPDate = parsed.lastXPDate;
                 checkNewDay();
             }
         }
@@ -1168,7 +1222,6 @@
         function checkNewDay() {
             const today = new Date().toDateString();
             if (lastCompletionDate && lastCompletionDate !== today) {
-                // Save previous day's completion to history
                 const completed = tasks.filter(t => t.completed).length;
                 const total = tasks.length;
                 const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
@@ -1180,27 +1233,38 @@
                     totalTasks: total
                 });
 
-                // Keep only last 7 days
                 if (dailyHistory.length > 7) dailyHistory.shift();
 
-                // Reset for new day but keep recurring tasks
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                if (lastCompletionDate === yesterday.toDateString()) {
+                    streak++;
+                } else {
+                    streak = 1;
+                }
+
                 const recurringTasks = tasks.filter(t => t.recurring && t.recurring !== 'none');
-                const newRecurring = recurringTasks.map(t => ({
+                tasks = recurringTasks.map(t => ({
                     ...t,
                     completed: false,
                     id: Date.now() + Math.random()
                 }));
 
-                tasks = newRecurring;
                 goals = goals.filter(g => !g.completed).map(g => {
                     g.progress = 0;
                     return g;
                 });
 
-                // Generate new challenges
+                dailyXP = 0;
+                lastXPDate = today;
                 generateChallenges();
-
                 lastCompletionDate = today;
+                saveToStorage();
+            }
+
+            if (lastXPDate !== today) {
+                dailyXP = 0;
+                lastXPDate = today;
                 saveToStorage();
             }
         }
@@ -1210,11 +1274,11 @@
                 const today = new Date().toDateString();
                 if (lastCompletionDate !== today) {
                     checkNewDay();
+                    renderAll();
                 }
             }, 60000);
         }
 
-        // Challenge generation
         function generateChallenges() {
             dailyChallenges = challengeDefs.daily.map(c => ({
                 ...c,
@@ -1222,7 +1286,7 @@
                 completed: false
             }));
 
-            if (weeklyChallenges.length === 0 || !weeklyChallenges[0]?.period || getMonday(new Date()).toDateString() !== getMonday(new Date(weeklyChallenges[0]?.startDate || new Date())).toDateString()) {
+            if (weeklyChallenges.length === 0 || getMonday(new Date()).toDateString() !== getMonday(new Date(weeklyChallenges[0]?.startDate || new Date())).toDateString()) {
                 weeklyChallenges = challengeDefs.weekly.map(c => ({
                     ...c,
                     progress: 0,
@@ -1239,14 +1303,30 @@
             return new Date(d.setDate(diff));
         }
 
-        // XP & Level
         function addXP(amount) {
-            xp += amount;
-            const newLevel = Math.floor(xp / 100) + 1;
-            if (newLevel > level) {
-                level = newLevel;
-                showToast('Level Up!', `You reached Level ${level}!`, '⭐');
+            const today = new Date().toDateString();
+            if (lastXPDate !== today) {
+                dailyXP = 0;
+                lastXPDate = today;
             }
+
+            const levelMultiplier = 1 + (level - 1) * 0.1;
+            const adjustedAmount = Math.floor(amount * levelMultiplier);
+            
+            const remainingDailyXP = DAILY_XP_LIMIT - dailyXP;
+            const xpToAdd = Math.min(adjustedAmount, remainingDailyXP);
+            
+            if (xpToAdd > 0) {
+                xp += xpToAdd;
+                dailyXP += xpToAdd;
+                
+                const newLevel = Math.floor(xp / 100) + 1;
+                if (newLevel > level) {
+                    level = newLevel;
+                    showToast('Level Up!', `You reached Level ${level}!`, '⭐');
+                }
+            }
+
             updateXPBar();
             checkAchievements();
             saveToStorage();
@@ -1257,27 +1337,20 @@
             document.getElementById('xp-fill').style.width = xpInLevel + '%';
             document.getElementById('current-xp').textContent = xpInLevel;
             document.getElementById('xp-needed').textContent = 100;
-            document.getElementById('xp-level').textContent = `Level ${level}`;
+            document.getElementById('xp-level').textContent = 'Level ' + level;
+            document.getElementById('xp-daily').textContent = 'Daily XP: ' + dailyXP + ' / ' + DAILY_XP_LIMIT;
         }
 
-        // Achievements
         function checkAchievements() {
-            const today = new Date().toDateString();
-            
-            // First task
             if (completedTasksTotal >= 1 && !achievements.includes('first_task')) {
                 unlockAchievement('first_task');
             }
-
-            // Streak achievements
             if (streak >= 3 && !achievements.includes('streak_3')) {
                 unlockAchievement('streak_3');
             }
             if (streak >= 7 && !achievements.includes('streak_7')) {
                 unlockAchievement('streak_7');
             }
-
-            // Task counts
             if (completedTasksTotal >= 10 && !achievements.includes('tasks_10')) {
                 unlockAchievement('tasks_10');
             }
@@ -1287,24 +1360,18 @@
             if (completedTasksTotal >= 100 && !achievements.includes('tasks_100')) {
                 unlockAchievement('tasks_100');
             }
-
-            // Goal counts
             if (completedGoalsTotal >= 5 && !achievements.includes('goals_5')) {
                 unlockAchievement('goals_5');
             }
             if (completedGoalsTotal >= 25 && !achievements.includes('goals_25')) {
                 unlockAchievement('goals_25');
             }
-
-            // Level achievements
             if (level >= 5 && !achievements.includes('level_5')) {
                 unlockAchievement('level_5');
             }
             if (level >= 10 && !achievements.includes('level_10')) {
                 unlockAchievement('level_10');
             }
-
-            // Notes achievement
             if (notes.length >= 20 && !achievements.includes('notes_20')) {
                 unlockAchievement('notes_20');
             }
@@ -1315,7 +1382,7 @@
             if (def && !achievements.includes(id)) {
                 achievements.push(id);
                 addXP(def.xp);
-                showToast('Achievement Unlocked!', `${def.name} - +${def.xp} XP`, def.icon);
+                showToast('Achievement Unlocked!', def.name + ' - +' + def.xp + ' XP', def.icon);
                 renderAchievements();
             }
         }
@@ -1329,73 +1396,54 @@
             }
         }
 
-        // Challenge progress
         function updateChallengeProgress() {
             const completed = tasks.filter(t => t.completed).length;
 
             dailyChallenges.forEach(c => {
                 if (c.completed) return;
                 switch(c.type) {
-                    case 'tasks':
-                        c.progress = completed;
-                        break;
-                    case 'percent':
-                        c.progress = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
-                        break;
-                    case 'notes':
-                        c.progress = notes.length;
-                        break;
-                    case 'high_priority':
-                        c.progress = tasks.filter(t => t.priority === 'high' && t.completed).length;
-                        break;
-                    case 'goals_percent':
+                    case 'tasks': c.progress = completed; break;
+                    case 'percent': c.progress = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0; break;
+                    case 'notes': c.progress = notes.length; break;
+                    case 'high_priority': c.progress = tasks.filter(t => t.priority === 'high' && t.completed).length; break;
+                    case 'goals_percent': 
                         if (goals.length > 0) {
                             const avgProgress = goals.reduce((sum, g) => sum + g.progress, 0) / goals.length;
                             c.progress = Math.round(avgProgress);
                         }
                         break;
                 }
-                if (c.progress >= c.target) {
+                if (c.progress >= c.target && !c.completed) {
                     c.completed = true;
                     addXP(25);
-                    showToast('Daily Challenge Complete!', `+25 XP`, '🎯');
+                    showToast('Daily Challenge Complete!', '+25 XP', '🎯');
                 }
             });
 
             weeklyChallenges.forEach(c => {
                 if (c.completed) return;
                 switch(c.type) {
-                    case 'tasks':
-                        c.progress = completedTasksTotal;
-                        break;
+                    case 'tasks': c.progress = completedTasksTotal; break;
                     case 'avg_percent':
-                        const avg = dailyHistory.length > 0 
-                            ? dailyHistory.reduce((sum, d) => sum + d.percent, 0) / dailyHistory.length 
-                            : 0;
+                        const avg = dailyHistory.length > 0 ? dailyHistory.reduce((sum, d) => sum + d.percent, 0) / dailyHistory.length : 0;
                         c.progress = Math.round(avg);
                         break;
-                    case 'streak':
-                        c.progress = streak;
-                        break;
-                    case 'high_priority':
-                        c.progress = tasks.filter(t => t.priority === 'high' && t.completed).length;
-                        break;
-                    case 'level':
-                        c.progress = level;
-                        break;
+                    case 'streak': c.progress = streak; break;
+                    case 'high_priority': c.progress = tasks.filter(t => t.priority === 'high' && t.completed).length; break;
+                    case 'level': c.progress = level; break;
                 }
-                if (c.progress >= c.target) {
+                if (c.progress >= c.target && !c.completed) {
                     c.completed = true;
                     addXP(75);
-                    showToast('Weekly Challenge Complete!', `+75 XP`, '🏆');
+                    showToast('Weekly Challenge Complete!', '+75 XP', '🏆');
                 }
             });
 
             renderChallenges();
         }
 
-        // Toast
-        function showToast(title, desc, icon = '⭐') {
+        function showToast(title, desc, icon) {
+            icon = icon || '⭐';
             const toast = document.getElementById('toast');
             document.getElementById('toast-title').textContent = title;
             document.getElementById('toast-desc').textContent = desc;
@@ -1404,20 +1452,61 @@
             setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        // Theme
-       function toggleTheme() {
-    const isDark = document.body.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-        document.body.removeAttribute('data-theme');
-        document.querySelector('.theme-toggle').classList.remove('active');
-        localStorage.setItem('theme', 'light');
-    } else {
-        document.body.setAttribute('data-theme', 'dark');
-        document.querySelector('.theme-toggle').classList.add('active');
-        localStorage.setItem('theme', 'dark');
-    }
-}
-        // Add Task
+        function toggleTheme() {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+                document.querySelector('.theme-toggle').classList.remove('active');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').classList.add('active');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Modal functions
+        function openEditModal(type, id, currentValue) {
+            document.getElementById('modal-type').value = type;
+            document.getElementById('modal-id').value = id;
+            document.getElementById('modal-input').value = currentValue;
+            document.getElementById('modal-title').textContent = 'Edit ' + type.charAt(0).toUpperCase() + type.slice(1);
+            document.getElementById('edit-modal').classList.add('show');
+            document.getElementById('modal-input').focus();
+        }
+
+        function closeModal() {
+            document.getElementById('edit-modal').classList.remove('show');
+        }
+
+        function saveModal() {
+            const type = document.getElementById('modal-type').value;
+            const id = parseInt(document.getElementById('modal-id').value);
+            const newValue = document.getElementById('modal-input').value.trim();
+            
+            if (!newValue) {
+                closeModal();
+                return;
+            }
+
+            if (type === 'goal') {
+                const goal = goals.find(g => g.id === id);
+                if (goal) {
+                    goal.text = newValue;
+                    renderGoals();
+                }
+            } else if (type === 'note') {
+                const note = notes.find(n => n.id === id);
+                if (note) {
+                    note.text = newValue;
+                    renderNotes();
+                }
+            }
+
+            closeModal();
+            saveToStorage();
+        }
+
         function addTask() {
             const input = document.getElementById('task-input');
             const priority = document.getElementById('task-priority').value;
@@ -1429,8 +1518,8 @@
             const task = {
                 id: Date.now(),
                 text: input.value.trim(),
-                priority,
-                category,
+                priority: priority,
+                category: category,
                 recurring: recurring,
                 completed: false,
                 createdAt: new Date().toISOString()
@@ -1440,7 +1529,6 @@
             input.value = '';
             renderTasks();
             updateStats();
-            updateChallengeProgress();
             saveToStorage();
         }
 
@@ -1455,22 +1543,10 @@
                 task.completed = !task.completed;
                 
                 if (task.completed && !wasCompleted) {
-                    // Adding XP based on priority
                     const priorityXP = { high: 30, medium: 20, low: 10 };
                     addXP(priorityXP[task.priority]);
                     completedTasksTotal++;
                     
-                    // Handle recurring tasks
-                    if (task.recurring && task.recurring !== 'none') {
-                        const newTask = {
-                            ...task,
-                            id: Date.now(),
-                            completed: false,
-                            createdAt: new Date().toISOString()
-                        };
-                        tasks.push(newTask);
-                    }
-
                     const today = new Date().toDateString();
                     if (lastCompletionDate !== today) {
                         lastCompletionDate = today;
@@ -1493,7 +1569,6 @@
             saveToStorage();
         }
 
-        // Add Goal
         function addGoal() {
             const input = document.getElementById('goal-input');
             if (!input.value.trim()) return;
@@ -1529,12 +1604,24 @@
                 }
                 renderGoals();
                 updateStats();
-                updateProgressRing();
                 saveToStorage();
             }
         }
 
-        // Add Note
+        function deleteGoal(id) {
+            goals = goals.filter(g => g.id !== id);
+            renderGoals();
+            updateStats();
+            saveToStorage();
+        }
+
+        function editGoal(id) {
+            const goal = goals.find(g => g.id === id);
+            if (goal) {
+                openEditModal('goal', id, goal.text);
+            }
+        }
+
         function addNote() {
             const input = document.getElementById('note-input');
             if (!input.value.trim()) return;
@@ -1557,7 +1644,20 @@
             if (e.key === 'Enter') addNote();
         }
 
-        // Filter Tasks
+        function deleteNote(id) {
+            notes = notes.filter(n => n.id !== id);
+            renderNotes();
+            updateStats();
+            saveToStorage();
+        }
+
+        function editNote(id) {
+            const note = notes.find(n => n.id === id);
+            if (note) {
+                openEditModal('note', id, note.text);
+            }
+        }
+
         function filterByPriority(priority, btn) {
             currentPriorityFilter = priority;
             document.querySelectorAll('#priority-filters .filter-btn').forEach(b => b.classList.remove('active'));
@@ -1570,7 +1670,6 @@
             renderTasks();
         }
 
-        // Render Functions
         function renderAll() {
             renderTasks();
             renderGoals();
@@ -1600,26 +1699,25 @@
                 return;
             }
 
-            list.innerHTML = filtered.map(task => `
-                <div class="task-item ${task.completed ? 'completed' : ''}" draggable="true" 
-                     ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)"
-                     ondragend="dragEnd(event)">
-                    <div class="task-checkbox ${task.completed ? 'checked' : ''}" onclick="toggleTask(${task.id})">
-                        ${task.completed ? '✓' : ''}
-                    </div>
-                    <div class="task-content">
-                        <div class="task-text">${task.text}</div>
-                        <div class="task-meta">
-                            <span class="task-priority ${task.priority}"></span>
-                            <span class="task-tag ${task.category}">${task.category}</span>
-                            ${task.recurring && task.recurring !== 'none' ? `<span class="recurring-icon">🔄 ${task.recurring}</span>` : ''}
-                        </div>
-                    </div>
-                    <div class="task-actions">
-                        <button class="task-action delete" onclick="deleteTask(${task.id})">🗑️</button>
-                    </div>
-                </div>
-            `).join('');
+            list.innerHTML = filtered.map(task => {
+                let html = '<div class="task-item' + (task.completed ? ' completed' : '') + '">';
+                html += '<div class="task-checkbox' + (task.completed ? ' checked' : '') + '" onclick="toggleTask(' + task.id + ')">';
+                html += (task.completed ? '✓' : '');
+                html += '</div>';
+                html += '<div class="task-content">';
+                html += '<div class="task-text">' + task.text + '</div>';
+                html += '<div class="task-meta">';
+                html += '<span class="task-priority ' + task.priority + '"></span>';
+                html += '<span class="task-tag ' + task.category + '">' + task.category + '</span>';
+                if (task.recurring && task.recurring !== 'none') {
+                    html += '<span class="recurring-icon">🔄 ' + task.recurring + '</span>';
+                }
+                html += '</div></div>';
+                html += '<div class="task-actions">';
+                html += '<button class="task-action delete" onclick="deleteTask(' + task.id + ')" title="Delete">🗑️</button>';
+                html += '</div></div>';
+                return html;
+            }).join('');
         }
 
         function renderGoals() {
@@ -1630,18 +1728,21 @@
                 return;
             }
 
-            list.innerHTML = goals.map(goal => `
-                <div class="goal-item ${goal.completed ? 'completed' : ''}">
-                    <span class="goal-text">${goal.text}</span>
-                    <div class="goal-progress">
-                        <span class="goal-percent">${goal.progress}%</span>
-                        <div class="goal-controls">
-                            <button class="goal-btn" onclick="updateGoal(${goal.id}, -10)">−</button>
-                            <button class="goal-btn" onclick="updateGoal(${goal.id}, 10)">+</button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
+            list.innerHTML = goals.map(goal => {
+                let html = '<div class="goal-item">';
+                html += '<span class="goal-text">' + goal.text + '</span>';
+                html += '<div class="goal-progress">';
+                html += '<span class="goal-percent">' + goal.progress + '%</span>';
+                html += '<div class="goal-controls">';
+                html += '<button class="goal-btn" onclick="updateGoal(' + goal.id + ',-10)" title="Decrease">−</button>';
+                html += '<button class="goal-btn" onclick="updateGoal(' + goal.id + ',10)" title="Increase">+</button>';
+                html += '</div></div>';
+                html += '<div class="goal-controls">';
+                html += '<button class="goal-btn" onclick="editGoal(' + goal.id + ')" title="Edit">✏️</button>';
+                html += '<button class="goal-btn" onclick="deleteGoal(' + goal.id + ')" title="Delete">🗑️</button>';
+                html += '</div></div>';
+                return html;
+            }).join('');
         }
 
         function renderNotes() {
@@ -1652,47 +1753,58 @@
                 return;
             }
 
-            list.innerHTML = notes.slice(0, 10).map(note => `
-                <div class="note-item">
-                    <div class="note-text">${note.text}</div>
-                    <div class="note-time">${note.time}</div>
-                </div>
-            `).join('');
+            list.innerHTML = notes.slice(0, 10).map(note => {
+                let html = '<div class="note-item">';
+                html += '<div class="note-content">';
+                html += '<div class="note-text">' + note.text + '</div>';
+                html += '<div class="note-time">' + note.time + '</div>';
+                html += '</div>';
+                html += '<div class="note-actions">';
+                html += '<button class="goal-btn" onclick="editNote(' + note.id + ')" title="Edit">✏️</button>';
+                html += '<button class="goal-btn" onclick="deleteNote(' + note.id + ')" title="Delete">🗑️</button>';
+                html += '</div></div>';
+                return html;
+            }).join('');
         }
 
         function renderAchievements() {
             const grid = document.getElementById('achievements-grid');
-            grid.innerHTML = achievementDefs.map(a => `
-                <div class="achievement ${achievements.includes(a.id) ? 'unlocked' : ''}">
-                    <div class="achievement-icon">${a.icon}</div>
-                    <div class="achievement-name">${a.name}</div>
-                    <div class="achievement-desc">${a.desc}</div>
-                    <div class="achievement XP">+${a.xp} XP</div>
-                </div>
-            `).join('');
-            document.getElementById('unlocked-count').textContent = `${achievements.length} / ${achievementDefs.length} unlocked`;
+            grid.innerHTML = achievementDefs.map(a => {
+                let html = '<div class="achievement';
+                html += (achievements.includes(a.id) ? ' unlocked' : '');
+                html += '">';
+                html += '<div class="achievement-icon">' + a.icon + '</div>';
+                html += '<div class="achievement-name">' + a.name + '</div>';
+                html += '<div class="achievement-desc">' + a.desc + '</div>';
+                html += '<div class="achievement-xp">+' + a.xp + ' XP</div>';
+                html += '</div>';
+                return html;
+            }).join('');
+            document.getElementById('unlocked-count').textContent = achievements.length + ' / ' + achievementDefs.length + ' unlocked';
         }
 
         function renderChallenges() {
-            document.getElementById('daily-challenges').innerHTML = dailyChallenges.map(c => `
-                <div class="challenge-item ${c.completed ? 'completed' : ''}">
-                    <div class="challenge-info">
-                        <h4>${c.text}</h4>
-                        <p>Progress: ${c.progress} / ${c.target}</p>
-                    </div>
-                    <div class="challenge-reward">+25 XP</div>
-                </div>
-            `).join('');
+            document.getElementById('daily-challenges').innerHTML = dailyChallenges.map(c => {
+                let html = '<div class="challenge-item">';
+                html += '<div class="challenge-info">';
+                html += '<h4>' + c.text + '</h4>';
+                html += '<p>Progress: ' + c.progress + ' / ' + c.target + '</p>';
+                html += '</div>';
+                html += '<div class="challenge-reward">+25 XP</div>';
+                html += '</div>';
+                return html;
+            }).join('');
 
-            document.getElementById('weekly-challenges').innerHTML = weeklyChallenges.map(c => `
-                <div class="challenge-item ${c.completed ? 'completed' : ''}">
-                    <div class="challenge-info">
-                        <h4>${c.text}</h4>
-                        <p>Progress: ${c.progress} / ${c.target}</p>
-                    </div>
-                    <div class="challenge-reward">+75 XP</div>
-                </div>
-            `).join('');
+            document.getElementById('weekly-challenges').innerHTML = weeklyChallenges.map(c => {
+                let html = '<div class="challenge-item">';
+                html += '<div class="challenge-info">';
+                html += '<h4>' + c.text + '</h4>';
+                html += '<p>Progress: ' + c.progress + ' / ' + c.target + '</p>';
+                html += '</div>';
+                html += '<div class="challenge-reward">+75 XP</div>';
+                html += '</div>';
+                return html;
+            }).join('');
         }
 
         function renderWeeklyChart() {
@@ -1719,26 +1831,23 @@
 
                 const height = Math.max(5, percent * 1.2);
                 
-                chartHTML += `
-                    <div class="chart-bar-container">
-                        <div class="chart-percent">${percent}%</div>
-                        <div class="chart-bar" style="height: ${height}px"></div>
-                        <div class="chart-day">${days[date.getDay()]}</div>
-                    </div>
-                `;
+                chartHTML += '<div class="chart-bar-container">';
+                chartHTML += '<div class="chart-percent">' + percent + '%</div>';
+                chartHTML += '<div class="chart-bar" style="height:' + height + 'px"></div>';
+                chartHTML += '<div class="chart-day">' + days[date.getDay()] + '</div>';
+                chartHTML += '</div>';
             }
 
             container.innerHTML = chartHTML;
-            document.getElementById('week-average').textContent = `Average: ${count > 0 ? Math.round(totalPercent / count) : 0}%`;
+            document.getElementById('week-average').textContent = 'Average: ' + (count > 0 ? Math.round(totalPercent / count) : 0) + '%';
         }
 
-        // Stats Update
         function updateStats() {
             const activeTasks = tasks.filter(t => !t.completed).length;
             document.getElementById('task-count').textContent = activeTasks;
             document.getElementById('goals-count').textContent = goals.filter(g => !g.completed).length;
             document.getElementById('notes-count').textContent = notes.length;
-            document.getElementById('completed-today').textContent = `${tasks.filter(t => t.completed).length} done today`;
+            document.getElementById('completed-today').textContent = tasks.filter(t => t.completed).length + ' done today';
         }
 
         function updateProgressRing() {
@@ -1757,116 +1866,65 @@
             document.getElementById('streak-count').textContent = streak;
         }
 
-        // Drag and Drop
-        let draggedItem = null;
-
-        function dragStart(e) {
-            draggedItem = e.target;
-            e.target.classList.add('dragging');
-        }
-
-        function dragOver(e) {
-            e.preventDefault();
-        }
-
-        function drop(e) {
-            e.preventDefault();
-            if (draggedItem) {
-                const target = e.target.closest('.task-item');
-                if (target && target !== draggedItem) {
-                    const tasksList = document.getElementById('task-list');
-                    const allItems = [...tasksList.querySelectorAll('.task-item')];
-                    const draggedIdx = allItems.indexOf(draggedItem);
-                    const targetIdx = allItems.indexOf(target);
-
-                    const [removed] = tasks.splice(draggedIdx, 1);
-                    tasks.splice(targetIdx, 0, removed);
-
-                    renderTasks();
-                    saveToStorage();
-                }
-            }
-        }
-
-        function dragEnd(e) {
-            e.target.classList.remove('dragging');
-            draggedItem = null;
-        }
-
-        // Check recurring tasks
-        function checkRecurringTasks() {
-            const now = new Date();
-            const dayOfWeek = now.getDay();
-            const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5;
-            const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
-
-            tasks.forEach(task => {
-                if (task.recurring && task.recurring !== 'none') {
-                    const shouldReset = 
-                        (task.recurring === 'daily') ||
-                        (task.recurring === 'weekdays' && isWeekday) ||
-                        (task.recurring === 'weekends' && isWeekend) ||
-                        (task.recurring === 'weekly' && dayOfWeek === 1);
-
-                    if (shouldReset && task.completed) {
-                        // Will be handled when completing the task
-                    }
-                }
-            });
-        }
-
-        // Download Summary
         function downloadSummary() {
             const today = new Date().toLocaleDateString();
             const completed = tasks.filter(t => t.completed).length;
             const total = tasks.length;
             const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
 
-            let content = `📊 PRODUCTIVITY SUMMARY\n`;
-            content += `Date: ${today}\n\n`;
-            content += `📈 STATS\n`;
-            content += `- Total Tasks: ${total}\n`;
-            content += `- Completed: ${completed}\n`;
-            content += `- Completion Rate: ${percent}%\n`;
-            content += `- Level: ${level}\n`;
-            content += `- XP: ${xp}\n`;
-            content += `- Streak: ${streak} days\n\n`;
-            content += `📋 TASKS\n`;
+            let content = '📊 PRODUCTIVITY SUMMARY\n';
+            content += 'Date: ' + today + '\n\n';
+            content += '📈 STATS\n';
+            content += '- Total Tasks: ' + total + '\n';
+            content += '- Completed: ' + completed + '\n';
+            content += '- Completion Rate: ' + percent + '%\n';
+            content += '- Level: ' + level + '\n';
+            content += '- XP: ' + xp + '\n';
+            content += '- Streak: ' + streak + ' days\n';
+            content += '- Daily XP: ' + dailyXP + ' / ' + DAILY_XP_LIMIT + '\n\n';
+            content += '📋 TASKS\n';
             tasks.forEach(t => {
                 const status = t.completed ? '✓' : '○';
-                const rec = t.recurring && t.recurring !== 'none' ? ` [${t.recurring}]` : '';
-                content += `${status} [${t.priority.toUpperCase()}] ${t.text}${rec}\n`;
+                const rec = t.recurring && t.recurring !== 'none' ? ' [' + t.recurring + ']' : '';
+                content += status + ' [' + t.priority.toUpperCase() + '] ' + t.text + rec + '\n';
             });
-            content += `\n🎯 GOALS\n`;
+            content += '\n🎯 GOALS\n';
             goals.forEach(g => {
-                content += `${g.completed ? '✓' : '○'} ${g.text} - ${g.progress}%\n`;
+                content += (g.completed ? '✓' : '○') + ' ' + g.text + ' - ' + g.progress + '%\n';
             });
-            content += `\n📝 NOTES\n`;
+            content += '\n📝 NOTES\n';
             notes.forEach(n => {
-                content += `- ${n.text} (${n.time})\n`;
+                content += '- ' + n.text + ' (' + n.time + ')\n';
             });
-            content += `\n🏅 ACHIEVEMENTS (${achievements.length}/${achievementDefs.length})\n`;
+            content += '\n🏅 ACHIEVEMENTS (' + achievements.length + '/' + achievementDefs.length + ')\n';
             achievements.forEach(id => {
                 const a = achievementDefs.find(x => x.id === id);
-                content += `- ${a.icon} ${a.name}\n`;
+                content += '- ' + a.icon + ' ' + a.name + '\n';
             });
 
             const blob = new Blob([content], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `productivity-${new Date().toISOString().split('T')[0]}.txt`;
+            a.download = 'productivity-' + new Date().toISOString().split('T')[0] + '.txt';
             a.click();
             URL.revokeObjectURL(url);
         }
 
-        // Load theme
         if (localStorage.getItem('theme') === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
             document.querySelector('.theme-toggle').classList.add('active');
         }
 
-        // Initialize app
+        document.getElementById('modal-input').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') saveModal();
+            if (e.key === 'Escape') closeModal();
+        });
+
+        document.getElementById('edit-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
         init();
     </script>
 </body>
